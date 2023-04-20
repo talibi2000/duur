@@ -76,7 +76,7 @@ def calcul_emprunt(profil, capital, taux_interet, date_maturite, VALUE_DATE, per
             annuite = interetss + amortissement
             date_actuelle += increment
             capital_rest -= amortissement
-            table_amortissement[j] = i+1, pd.to_datetime(date_actuelle, format='%Y-%m-%d'), annuite, interetss, amortissement, capital_rest
+            table_amortissement[j] = 1, pd.to_datetime(date_actuelle, format='%Y-%m-%d'), annuite, interetss, amortissement, capital_rest
 
         duree_vie_ponderee = sum([periodes[i] * interets[i] * discount_factors[i] for i in range(len(periodes))])                              / sum([interets[i] * discount_factors[i] for i in range(len(periodes))])
         df_amortissement = pd.DataFrame(table_amortissement, columns=['id',"Date d'échéance", 'annuité', 'Intérêts', 'Amortissement', 'capital rest'])
